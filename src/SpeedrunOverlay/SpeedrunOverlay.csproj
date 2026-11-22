@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>SpeedrunOverlay</AssemblyName>
+    <RootNamespace>SpeedrunOverlay</RootNamespace>
+    <Version>1.1.0</Version>
+    <Product>V Rising Speedrun Overlay</Product>
+    <Description>In-game speedrun step overlay for the V Rising IL2CPP client.</Description>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.733" IncludeAssets="compile" PrivateAssets="all" />
+    <PackageReference Include="VRising.Unhollowed.Client" Version="1.1.9.9219901" IncludeAssets="compile" PrivateAssets="all" />
+  </ItemGroup>
+</Project>
