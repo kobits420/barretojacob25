@@ -8,7 +8,6 @@ public sealed class KitchenSetDressing : MonoBehaviour
 {
     void Start()
     {
-        DressRoom();
         var fridge = Spawn("kitchenFridge", new Vector3(-2.55f, 0f, 0.25f), -90f, 1.85f, FitAxis.Height);
         if (fridge != null)
         {
