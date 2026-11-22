@@ -2410,6 +2410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1107}
   - component: {fileID: 1108}
+  - component: {fileID: 1109}
   m_Layer: 0
   m_Name: Kitchen
   m_TagString: Untagged
@@ -2442,6 +2443,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c29da55b11447caa2eac790d24531e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier:
+--- !u!114 &1109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bd7f83c2f56418c9ff71d878275b434, type: 3}
   m_Name: 
   m_EditorClassIdentifier:
 --- !u!1660057539 &9223372036854775807

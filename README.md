@@ -21,6 +21,8 @@ The project uses the built-in render pipeline, so it opens without downloading t
 
 `DoorLockPuzzle` (`Assets/Scripts/PuzzleCore`) owns the code and whether the door is unlocked. The keypad only sends digits and reads that state. This puzzle does not add networking.
 
+When you press Play, the grey boxes for the fridge, counter, and table are replaced with furniture from Kenney's Furniture Kit (CC0). The license note is `Assets/Art/KenneyFurnitureKit-CC0.txt`. The door, the code lock, and the fridge note stay the same.
+
 If the door swings out of the kitchen instead of into it, select `DoorHinge` and set Open Angle to `-90`.
 
 ## What was exercised without the Editor
