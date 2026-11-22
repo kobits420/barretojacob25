@@ -1,0 +1,368 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA00000000000000000000C8 /* TemTongApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000064 /* TemTongApp.swift */; };
+		AA00000000000000000000C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000065 /* ContentView.swift */; };
+		AA00000000000000000000CA /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000066 /* GameSession.swift */; };
+		AA00000000000000000000CB /* Trials.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000067 /* Trials.swift */; };
+		AA00000000000000000000CC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000068 /* Theme.swift */; };
+		AA00000000000000000000CD /* TrialPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000069 /* TrialPicture.swift */; };
+		AA0000000000000000000190 /* trial-01.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000012C /* trial-01.mp4 */; };
+		AA0000000000000000000191 /* trial-01.png in Resources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000012D /* trial-01.png */; };
+		AA0000000000000000000192 /* trial-02.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000012E /* trial-02.mp4 */; };
+		AA0000000000000000000193 /* trial-02.png in Resources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000012F /* trial-02.png */; };
+		AA0000000000000000000194 /* trial-03.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000130 /* trial-03.mp4 */; };
+		AA0000000000000000000195 /* trial-03.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000131 /* trial-03.png */; };
+		AA0000000000000000000196 /* trial-04.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000132 /* trial-04.mp4 */; };
+		AA0000000000000000000197 /* trial-04.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000133 /* trial-04.png */; };
+		AA0000000000000000000198 /* trial-05.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000134 /* trial-05.mp4 */; };
+		AA0000000000000000000199 /* trial-05.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000135 /* trial-05.png */; };
+		AA000000000000000000019A /* trial-06.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000136 /* trial-06.mp4 */; };
+		AA000000000000000000019B /* trial-06.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000137 /* trial-06.png */; };
+		AA000000000000000000019C /* trial-07.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000138 /* trial-07.mp4 */; };
+		AA000000000000000000019D /* trial-07.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000139 /* trial-07.png */; };
+		AA000000000000000000019E /* trial-08.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000013A /* trial-08.mp4 */; };
+		AA000000000000000000019F /* trial-08.png in Resources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000013B /* trial-08.png */; };
+		AA00000000000000000001A0 /* trial-09.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000013C /* trial-09.mp4 */; };
+		AA00000000000000000001A1 /* trial-09.png in Resources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000013D /* trial-09.png */; };
+		AA00000000000000000001A2 /* trial-10-reveal.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000013E /* trial-10-reveal.mp4 */; };
+		AA00000000000000000001A3 /* trial-10-reveal.png in Resources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000013F /* trial-10-reveal.png */; };
+		AA00000000000000000001A4 /* trial-10.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000140 /* trial-10.mp4 */; };
+		AA00000000000000000001A5 /* trial-10.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000141 /* trial-10.png */; };
+		AA00000000000000000001F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000000F /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AA0000000000000000000064 /* TemTongApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemTongApp.swift; sourceTree = "<group>"; };
+		AA0000000000000000000065 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000066 /* GameSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
+		AA0000000000000000000067 /* Trials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trials.swift; sourceTree = "<group>"; };
+		AA0000000000000000000068 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		AA0000000000000000000069 /* TrialPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrialPicture.swift; sourceTree = "<group>"; };
+		AA000000000000000000012C /* trial-01.mp4 */ = {isa = PBXFileReference; lastKnownFileType = "public.mpeg-4"; path = "Media/trial-01.mp4"; sourceTree = "<group>"; };
+		AA000000000000000000012D /* trial-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Media/trial-01.png"; sourceTree = "<group>"; };
+		AA000000000000000000012E /* trial-02.mp4 */ = {isa = PBXFileReference; lastKnownFileType = "public.mpeg-4"; path = "Media/trial-02.mp4"; sourceTree = "<group>"; };
+		AA000000000000000000012F /* trial-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Media/trial-02.png"; sourceTree = "<group>"; };
+		AA0000000000000000000130 /* trial-03.mp4 */ = {isa = PBXFileReference; lastKnownFileType = "public.mpeg-4"; path = "Media/trial-03.mp4"; sourceTree = "<group>"; };
+		AA0000000000000000000131 /* trial-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Media/trial-03.png"; sourceTree = "<group>"; };
+		AA0000000000000000000132 /* trial-04.mp4 */ = {isa = PBXFileReference; lastKnownFileType = "public.mpeg-4"; path = "Media/trial-04.mp4"; sourceTree = "<group>"; };
+		AA0000000000000000000133 /* trial-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Media/trial-04.png"; sourceTree = "<group>"; };
+		AA0000000000000000000134 /* trial-05.mp4 */ = {isa = PBXFileReference; lastKnownFileType = "public.mpeg-4"; path = "Media/trial-05.mp4"; sourceTree = "<group>"; };
+		AA0000000000000000000135 /* trial-05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Media/trial-05.png"; sourceTree = "<group>"; };
+		AA0000000000000000000136 /* trial-06.mp4 */ = {isa = PBXFileReference; lastKnownFileType = "public.mpeg-4"; path = "Media/trial-06.mp4"; sourceTree = "<group>"; };
+		AA0000000000000000000137 /* trial-06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Media/trial-06.png"; sourceTree = "<group>"; };
+		AA0000000000000000000138 /* trial-07.mp4 */ = {isa = PBXFileReference; lastKnownFileType = "public.mpeg-4"; path = "Media/trial-07.mp4"; sourceTree = "<group>"; };
+		AA0000000000000000000139 /* trial-07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Media/trial-07.png"; sourceTree = "<group>"; };
+		AA000000000000000000013A /* trial-08.mp4 */ = {isa = PBXFileReference; lastKnownFileType = "public.mpeg-4"; path = "Media/trial-08.mp4"; sourceTree = "<group>"; };
+		AA000000000000000000013B /* trial-08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Media/trial-08.png"; sourceTree = "<group>"; };
+		AA000000000000000000013C /* trial-09.mp4 */ = {isa = PBXFileReference; lastKnownFileType = "public.mpeg-4"; path = "Media/trial-09.mp4"; sourceTree = "<group>"; };
+		AA000000000000000000013D /* trial-09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Media/trial-09.png"; sourceTree = "<group>"; };
+		AA000000000000000000013E /* trial-10-reveal.mp4 */ = {isa = PBXFileReference; lastKnownFileType = "public.mpeg-4"; path = "Media/trial-10-reveal.mp4"; sourceTree = "<group>"; };
+		AA000000000000000000013F /* trial-10-reveal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Media/trial-10-reveal.png"; sourceTree = "<group>"; };
+		AA0000000000000000000140 /* trial-10.mp4 */ = {isa = PBXFileReference; lastKnownFileType = "public.mpeg-4"; path = "Media/trial-10.mp4"; sourceTree = "<group>"; };
+		AA0000000000000000000141 /* trial-10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Media/trial-10.png"; sourceTree = "<group>"; };
+		AA000000000000000000000F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA0000000000000000000005 /* TemTong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TemTong.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA0000000000000000000010 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA0000000000000000000007 /* TemTong */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000064 /* TemTongApp.swift */,
+				AA0000000000000000000065 /* ContentView.swift */,
+				AA0000000000000000000066 /* GameSession.swift */,
+				AA0000000000000000000067 /* Trials.swift */,
+				AA0000000000000000000068 /* Theme.swift */,
+				AA0000000000000000000069 /* TrialPicture.swift */,
+				AA000000000000000000012C /* trial-01.mp4 */,
+				AA000000000000000000012D /* trial-01.png */,
+				AA000000000000000000012E /* trial-02.mp4 */,
+				AA000000000000000000012F /* trial-02.png */,
+				AA0000000000000000000130 /* trial-03.mp4 */,
+				AA0000000000000000000131 /* trial-03.png */,
+				AA0000000000000000000132 /* trial-04.mp4 */,
+				AA0000000000000000000133 /* trial-04.png */,
+				AA0000000000000000000134 /* trial-05.mp4 */,
+				AA0000000000000000000135 /* trial-05.png */,
+				AA0000000000000000000136 /* trial-06.mp4 */,
+				AA0000000000000000000137 /* trial-06.png */,
+				AA0000000000000000000138 /* trial-07.mp4 */,
+				AA0000000000000000000139 /* trial-07.png */,
+				AA000000000000000000013A /* trial-08.mp4 */,
+				AA000000000000000000013B /* trial-08.png */,
+				AA000000000000000000013C /* trial-09.mp4 */,
+				AA000000000000000000013D /* trial-09.png */,
+				AA000000000000000000013E /* trial-10-reveal.mp4 */,
+				AA000000000000000000013F /* trial-10-reveal.png */,
+				AA0000000000000000000140 /* trial-10.mp4 */,
+				AA0000000000000000000141 /* trial-10.png */,
+				AA000000000000000000000F /* Assets.xcassets */,
+			);
+			path = TemTong;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000008 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000005 /* TemTong.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000006 = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000007 /* TemTong */,
+				AA0000000000000000000008 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA0000000000000000000002 /* TemTong */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA000000000000000000000A /* Build configuration list for PBXNativeTarget "TemTong" */;
+			buildPhases = (
+				AA0000000000000000000003 /* Sources */,
+				AA0000000000000000000010 /* Frameworks */,
+				AA0000000000000000000004 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TemTong;
+			productName = TemTong;
+			productReference = AA0000000000000000000005 /* TemTong.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA0000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					AA0000000000000000000002 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = AA0000000000000000000009 /* Build configuration list for PBXProject "TemTong" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA0000000000000000000006;
+			productRefGroup = AA0000000000000000000008 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA0000000000000000000002 /* TemTong */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA0000000000000000000004 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0000000000000000000190 /* trial-01.mp4 in Resources */,
+				AA0000000000000000000191 /* trial-01.png in Resources */,
+				AA0000000000000000000192 /* trial-02.mp4 in Resources */,
+				AA0000000000000000000193 /* trial-02.png in Resources */,
+				AA0000000000000000000194 /* trial-03.mp4 in Resources */,
+				AA0000000000000000000195 /* trial-03.png in Resources */,
+				AA0000000000000000000196 /* trial-04.mp4 in Resources */,
+				AA0000000000000000000197 /* trial-04.png in Resources */,
+				AA0000000000000000000198 /* trial-05.mp4 in Resources */,
+				AA0000000000000000000199 /* trial-05.png in Resources */,
+				AA000000000000000000019A /* trial-06.mp4 in Resources */,
+				AA000000000000000000019B /* trial-06.png in Resources */,
+				AA000000000000000000019C /* trial-07.mp4 in Resources */,
+				AA000000000000000000019D /* trial-07.png in Resources */,
+				AA000000000000000000019E /* trial-08.mp4 in Resources */,
+				AA000000000000000000019F /* trial-08.png in Resources */,
+				AA00000000000000000001A0 /* trial-09.mp4 in Resources */,
+				AA00000000000000000001A1 /* trial-09.png in Resources */,
+				AA00000000000000000001A2 /* trial-10-reveal.mp4 in Resources */,
+				AA00000000000000000001A3 /* trial-10-reveal.png in Resources */,
+				AA00000000000000000001A4 /* trial-10.mp4 in Resources */,
+				AA00000000000000000001A5 /* trial-10.png in Resources */,
+				AA00000000000000000001F4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA0000000000000000000003 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA00000000000000000000C8 /* TemTongApp.swift in Sources */,
+				AA00000000000000000000C9 /* ContentView.swift in Sources */,
+				AA00000000000000000000CA /* GameSession.swift in Sources */,
+				AA00000000000000000000CB /* Trials.swift in Sources */,
+				AA00000000000000000000CC /* Theme.swift in Sources */,
+				AA00000000000000000000CD /* TrialPicture.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AA000000000000000000000B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA000000000000000000000C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA000000000000000000000D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Tem Tong";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.temtong.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA000000000000000000000E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Tem Tong";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.temtong.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA0000000000000000000009 /* Build configuration list for PBXProject "TemTong" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA000000000000000000000B /* Debug */,
+				AA000000000000000000000C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA000000000000000000000A /* Build configuration list for PBXNativeTarget "TemTong" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA000000000000000000000D /* Debug */,
+				AA000000000000000000000E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA0000000000000000000001 /* Project object */;
+}
