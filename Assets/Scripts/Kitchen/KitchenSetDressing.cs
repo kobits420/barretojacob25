@@ -1,13 +1,25 @@
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 /// <summary>
-/// Swaps the greybox props for Kenney's CC0 furniture when Play starts.
+/// Swaps the greybox props when Play starts. On sola, the imported Kitchen Set
+/// is used when those files are present. Other machines keep Kenney's CC0 furniture.
 /// Colliders and the code lock stay on the greybox pieces.
 /// </summary>
 public sealed class KitchenSetDressing : MonoBehaviour
 {
+    const string PackRoot = "Assets/GeniusCrate_Games/Kitchen_Set";
+
     void Start()
     {
+        if (DressKitchenSet())
+        {
+            PaintSurfaces();
+            return;
+        }
+
         var fridge = Spawn("kitchenFridge", new Vector3(-2.55f, 0f, 0.25f), -90f, 1.85f, FitAxis.Height);
         if (fridge != null)
         {
@@ -35,6 +47,102 @@ public sealed class KitchenSetDressing : MonoBehaviour
         PaintSurfaces();
     }
 
+    bool DressKitchenSet()
+    {
+#if UNITY_EDITOR
+        GameObject refrigerator = LoadPackAsset("Refrigerator.prefab");
+        GameObject diningTable = LoadPackAsset("Dining_Table.prefab");
+        GameObject setPrefab = LoadPackAsset("Kitchen_Set03.prefab");
+        GameObject setModel = LoadPackAsset("Kitchen_Set03.fbx");
+        if (refrigerator == null)
+            return false;
+
+        GameObject fridge = PlacePrefab(refrigerator, "Refrigerator", new Vector3(-2.55f, 0f, 0.25f), -90f, 1.85f, FitAxis.Height);
+        if (fridge != null)
+        {
+            HideRenderers("Fridge", "FridgeSeam");
+            StickNote(CombinedBounds(fridge));
+        }
+
+        bool counter = false;
+        GameObject cupboardSource = setPrefab != null ? setPrefab : setModel;
+        GameObject leftCupboard = PlaceExtracted(cupboardSource, "Kitchen_Cupboard", new Vector3(2.42f, 0f, -1.15f), 90f, 0.92f);
+        GameObject rightCupboard = PlaceExtracted(cupboardSource, "Kitchen_Cupboard", new Vector3(2.42f, 0f, -0.15f), 90f, 0.92f);
+        counter |= leftCupboard != null || rightCupboard != null;
+        if (!counter && setPrefab != null)
+            counter |= PlacePrefab(setPrefab, "Kitchen_Set03", new Vector3(2.42f, 0f, -0.15f), 90f, 0.92f, FitAxis.Height) != null;
+
+        counter |= PlaceExtracted(cupboardSource, "Gas_Stove", new Vector3(2.42f, 0f, 0.9f), 90f, 0.95f) != null;
+        if (counter)
+            HideRenderers("Counter");
+
+        if (PlacePrefab(diningTable, "Dining_Table", new Vector3(0.15f, 0f, -1.05f), 0f, 0.75f, FitAxis.Height) != null)
+            HideRenderers("Table");
+
+        return fridge != null;
+#else
+        return false;
+#endif
+    }
+
+#if UNITY_EDITOR
+    static GameObject LoadPackAsset(string fileName)
+    {
+        string direct = PackRoot + "/" + fileName;
+        GameObject asset = AssetDatabase.LoadAssetAtPath<GameObject>(direct);
+        if (asset != null)
+            return asset;
+
+        string stem = System.IO.Path.GetFileNameWithoutExtension(fileName);
+        string[] guids = AssetDatabase.FindAssets(stem);
+        foreach (string guid in guids)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            if (!path.StartsWith(PackRoot + "/") || !path.EndsWith("/" + fileName))
+                continue;
+            asset = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+            if (asset != null)
+                return asset;
+        }
+
+        return null;
+    }
+
+    GameObject PlaceExtracted(GameObject source, string pieceName, Vector3 feetCenter, float yaw, float targetHeight)
+    {
+        if (source == null)
+            return null;
+
+        GameObject temp = Instantiate(source);
+        temp.SetActive(false);
+        GameObject piece = FindPiece(temp.transform, pieceName);
+        GameObject copy = piece != null ? Instantiate(piece) : null;
+        Destroy(temp);
+        if (copy == null)
+            return null;
+
+        copy.SetActive(true);
+        copy.transform.SetParent(null, false);
+        return PlaceExisting(copy, pieceName, feetCenter, yaw, targetHeight, FitAxis.Height);
+    }
+
+    static GameObject FindPiece(Transform root, string pieceName)
+    {
+        MeshFilter filter = root.GetComponent<MeshFilter>();
+        if (root.name == pieceName || (filter != null && filter.sharedMesh != null && filter.sharedMesh.name == pieceName))
+            return root.gameObject;
+
+        for (int i = 0; i < root.childCount; i++)
+        {
+            GameObject found = FindPiece(root.GetChild(i), pieceName);
+            if (found != null)
+                return found;
+        }
+
+        return null;
+    }
+#endif
+
     enum FitAxis
     {
         Height,
@@ -44,11 +152,23 @@ public sealed class KitchenSetDressing : MonoBehaviour
     GameObject Spawn(string resourceName, Vector3 feetCenter, float yaw, float target, FitAxis axis)
     {
         GameObject prefab = Resources.Load<GameObject>("Furniture/" + resourceName);
+        return PlacePrefab(prefab, resourceName, feetCenter, yaw, target, axis);
+    }
+
+    GameObject PlacePrefab(GameObject prefab, string objectName, Vector3 feetCenter, float yaw, float target, FitAxis axis)
+    {
         if (prefab == null)
             return null;
+        return PlaceExisting(Instantiate(prefab), objectName, feetCenter, yaw, target, axis);
+    }
 
-        GameObject instance = Instantiate(prefab, transform);
-        instance.name = resourceName;
+    GameObject PlaceExisting(GameObject instance, string objectName, Vector3 feetCenter, float yaw, float target, FitAxis axis)
+    {
+        if (instance == null)
+            return null;
+
+        instance.name = objectName;
+        instance.transform.SetParent(transform, false);
         foreach (Collider collider in instance.GetComponentsInChildren<Collider>())
             collider.enabled = false;
 
