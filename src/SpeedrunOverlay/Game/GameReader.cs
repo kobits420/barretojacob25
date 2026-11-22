@@ -25,10 +25,11 @@ public sealed class GameReader
     private EntityQuery _linkQuery;
     private EntityQuery _regionQuery;
     private EntityQuery _markQuery;
+    private EntityQuery _bloodQuery;
     private World? _queriesWorld;
     private bool _queriesReady;
 
-    public void Refresh(GameSnapshot snap, int[]? highlightIds)
+    public void Refresh(GameSnapshot snap, int[]? highlightIds, int bloodTypeGuid)
     {
         snap.Clear();
         var world = FindClientWorld();
@@ -70,6 +71,11 @@ public sealed class GameReader
         if (highlightIds is { Length: > 0 })
         {
             ReadMarks(em, character, snap, highlightIds);
+        }
+
+        if (bloodTypeGuid != 0)
+        {
+            ReadBloodTarget(em, character, snap, bloodTypeGuid);
         }
     }
 
@@ -119,6 +125,7 @@ public sealed class GameReader
         _linkQuery = Create(em, Il2CppType.Of<CastleHeartConnection>(), Il2CppType.Of<PrefabGUID>());
         _regionQuery = Create(em, Il2CppType.Of<CurrentWorldRegion>());
         _markQuery = Create(em, Il2CppType.Of<PrefabGUID>(), Il2CppType.Of<LocalTransform>());
+        _bloodQuery = Create(em, Il2CppType.Of<BloodConsumeSource>(), Il2CppType.Of<LocalTransform>());
         _queriesWorld = world;
         _queriesReady = true;
     }
@@ -149,6 +156,7 @@ public sealed class GameReader
         TryDispose(_linkQuery);
         TryDispose(_regionQuery);
         TryDispose(_markQuery);
+        TryDispose(_bloodQuery);
         _queriesReady = false;
         _queriesWorld = null;
     }
@@ -477,6 +485,82 @@ public sealed class GameReader
         }
 
         return true;
+    }
+
+    private void ReadBloodTarget(EntityManager em, Entity character, GameSnapshot snap, int bloodTypeGuid)
+    {
+        snap.BloodTypeGuid = bloodTypeGuid;
+        try
+        {
+            var sources = _bloodQuery.ToEntityArray(Allocator.Temp);
+            try
+            {
+                var bestDistance = float.MaxValue;
+                var found = false;
+                float bestX = 0f, bestY = 0f, bestZ = 0f, bestQuality = 0f;
+                for (var i = 0; i < sources.Length; i++)
+                {
+                    var entity = sources[i];
+                    if (entity == character)
+                    {
+                        continue;
+                    }
+
+                    var source = em.GetComponentData<BloodConsumeSource>(entity);
+                    if (!source.CanBeConsumed || source.ForceBadBloodQuality || source.BloodQuality < BloodTypes.PerfectQuality)
+                    {
+                        continue;
+                    }
+
+                    if (source.UnitBloodType.Value.GuidHash != bloodTypeGuid)
+                    {
+                        continue;
+                    }
+
+                    if (em.HasComponent<Health>(entity) && em.GetComponentData<Health>(entity).IsDead)
+                    {
+                        continue;
+                    }
+
+                    var pos = em.GetComponentData<LocalTransform>(entity).Position;
+                    var dx = pos.x - snap.X;
+                    var dy = pos.y - snap.Y;
+                    var dz = pos.z - snap.Z;
+                    var distance = MathF.Sqrt(dx * dx + dy * dy + dz * dz);
+                    if (distance >= bestDistance)
+                    {
+                        continue;
+                    }
+
+                    bestDistance = distance;
+                    bestX = pos.x;
+                    bestY = pos.y;
+                    bestZ = pos.z;
+                    bestQuality = source.BloodQuality;
+                    found = true;
+                }
+
+                snap.BloodSearchLive = true;
+                snap.BloodTargetFound = found && snap.PositionLive;
+                if (snap.BloodTargetFound)
+                {
+                    snap.BloodX = bestX;
+                    snap.BloodY = bestY;
+                    snap.BloodZ = bestZ;
+                    snap.BloodQuality = bestQuality;
+                    snap.BloodDistance = bestDistance;
+                }
+            }
+            finally
+            {
+                sources.Dispose();
+            }
+        }
+        catch (Exception ex)
+        {
+            snap.BloodNote = ex.Message;
+            LogOnce("blood", ex.Message);
+        }
     }
 
     private void ReadMarks(EntityManager em, Entity character, GameSnapshot snap, int[] highlightIds)

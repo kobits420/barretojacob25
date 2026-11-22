@@ -20,11 +20,17 @@ public sealed class OverlayConfig
             "Show or hide highlights for the nodes, V Bloods, and mobs this step names.");
         PinTarget = file.Bind("Keys", "PinTarget", KeyCode.F11,
             "Save the player's current world position as this step's path target.");
+        BloodPrevious = file.Bind("Keys", "BloodPrevious", KeyCode.F4,
+            "Select the previous blood type to hunt. Off disables the red arrow.");
+        BloodNext = file.Bind("Keys", "BloodNext", KeyCode.F5,
+            "Select the next blood type to hunt. The arrow points at the closest loaded 100% of that type.");
 
         ShowOverlay = file.Bind("General", "ShowOverlay", true, "Overlay visibility. The toggle key flips this.");
         ShowPath = file.Bind("General", "ShowPath", true, "Path line visibility. The line stays off until the step is pinned.");
         ShowHighlights = file.Bind("General", "ShowHighlights", true, "Highlight visibility.");
         CurrentStep = file.Bind("General", "CurrentStep", 1, "1-based route step. Updated as you advance.");
+        BloodType = file.Bind("Blood", "Type", "Off",
+            "Blood type to track. Off, Worker, Warrior, Rogue, Scholar, Brute, Creature, Mutant, Draculin, or Dracula. F4 and F5 cycle this.");
     }
 
     public ConfigEntry<KeyCode> Confirm { get; }
@@ -33,10 +39,13 @@ public sealed class OverlayConfig
     public ConfigEntry<KeyCode> TogglePath { get; }
     public ConfigEntry<KeyCode> ToggleHighlights { get; }
     public ConfigEntry<KeyCode> PinTarget { get; }
+    public ConfigEntry<KeyCode> BloodPrevious { get; }
+    public ConfigEntry<KeyCode> BloodNext { get; }
     public ConfigEntry<bool> ShowOverlay { get; }
     public ConfigEntry<bool> ShowPath { get; }
     public ConfigEntry<bool> ShowHighlights { get; }
     public ConfigEntry<int> CurrentStep { get; }
+    public ConfigEntry<string> BloodType { get; }
 
     public static bool Pressed(KeyCode key) => key != KeyCode.None && Input.GetKeyDown(key);
 }

@@ -34,10 +34,17 @@ Defaults are single keys. Change them in the cfg under `[Keys]`.
 | F9 | Show or hide the path line. |
 | F10 | Show or hide highlights. |
 | F11 | Pin the active step's target to where you are standing. |
+| F4 / F5 | Previous / next blood type. Off hides the red arrow. |
 
 ## Path line
 
 The route has no map coordinates, and this mod does not invent any. The line stays off, and the overlay says so, until you stand on the spot you want and press **F11**. That writes the active step's world position into the pins file. The line is drawn from your character to that pin. Each step has its own pin.
+
+## Blood hunt
+
+F4 and F5 cycle the blood type: Off, Worker, Warrior, Rogue, Scholar, Brute, Creature, Mutant, Draculin, Dracula. The choice is saved as `Blood.Type` in the cfg.
+
+While a type is selected, a red arrow and a red path run from you to the closest **loaded** unit whose `BloodConsumeSource` is that type, can be consumed, is alive, and has blood quality of at least 99.5 (what the game shows as 100%). Nothing is pinned in advance. If no 100% of that type is currently loaded around you, the overlay says so and the arrow stays off. An on-screen red arrow sits on the screen edge when the unit is behind you or off camera.
 
 ## What auto-completes
 

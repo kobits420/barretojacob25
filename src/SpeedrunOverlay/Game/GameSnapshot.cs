@@ -57,6 +57,16 @@ public sealed class GameSnapshot
     public float Y { get; set; }
     public float Z { get; set; }
 
+    public bool BloodSearchLive { get; set; }
+    public bool BloodTargetFound { get; set; }
+    public int BloodTypeGuid { get; set; }
+    public string BloodTargetName { get; set; } = "";
+    public float BloodQuality { get; set; }
+    public float BloodX { get; set; }
+    public float BloodY { get; set; }
+    public float BloodZ { get; set; }
+    public float BloodDistance { get; set; }
+
     public List<WorldMark> Marks { get; } = new();
 
     public string? GearNote { get; set; }
@@ -67,6 +77,7 @@ public sealed class GameSnapshot
     public string? EquipNote { get; set; }
     public string? PlaceNote { get; set; }
     public string? QuestNote { get; set; }
+    public string? BloodNote { get; set; }
 
     public void Clear()
     {
@@ -90,8 +101,14 @@ public sealed class GameSnapshot
         QuestLive = false;
         ClaimedQuests.Clear();
         PositionLive = false;
+        BloodSearchLive = false;
+        BloodTargetFound = false;
+        BloodTypeGuid = 0;
+        BloodTargetName = "";
+        BloodQuality = 0f;
+        BloodDistance = 0f;
         Marks.Clear();
         GearNote = VBloodNote = RegionNote = HeartNote = null;
-        InventoryNote = EquipNote = PlaceNote = QuestNote = null;
+        InventoryNote = EquipNote = PlaceNote = QuestNote = BloodNote = null;
     }
 }

@@ -9,8 +9,10 @@ namespace SpeedrunOverlay.Hud;
 public sealed class WorldMarkers
 {
     private const int BeamCount = 24;
+    private const int BloodLineCount = 6;
     private LineRenderer? _path;
     private readonly LineRenderer[] _beams = new LineRenderer[BeamCount];
+    private readonly LineRenderer?[] _blood = new LineRenderer?[BloodLineCount];
     private Material? _material;
 
     public void DrawPath(bool enabled, bool hasPlayer, float px, float py, float pz, bool hasPin, Pin pin)
@@ -46,6 +48,40 @@ public sealed class WorldMarkers
         }
     }
 
+    public void DrawBloodArrow(bool enabled, bool hasPlayer, float px, float py, float pz, bool hasTarget, float x, float y, float z)
+    {
+        if (!enabled || !hasPlayer || !hasTarget)
+        {
+            SetBlood(false);
+            return;
+        }
+
+        var player = new Vector3(px, py + 1.15f, pz);
+        var target = new Vector3(x, y + 1.15f, z);
+        var flat = target - player;
+        flat.y = 0f;
+        if (flat.sqrMagnitude < 0.36f)
+        {
+            SetBlood(false);
+            return;
+        }
+
+        var dir = flat.normalized;
+        var side = Vector3.Cross(dir, Vector3.up);
+        var tip = target + dir * 0.15f;
+        var neck = target - dir * 1.7f;
+        PlaceBlood(0, player, target, 0.16f);
+        PlaceBlood(1, tip, neck + side * 0.75f, 0.22f);
+        PlaceBlood(2, tip, neck - side * 0.75f, 0.22f);
+
+        var localStart = player + dir * 1.5f;
+        var localTip = player + dir * 8f;
+        var localNeck = localTip - dir * 1.4f;
+        PlaceBlood(3, localStart, localTip, 0.28f);
+        PlaceBlood(4, localTip, localNeck + side * 0.7f, 0.28f);
+        PlaceBlood(5, localTip, localNeck - side * 0.7f, 0.28f);
+    }
+
     public void Destroy()
     {
         if (_path != null)
@@ -59,6 +95,15 @@ public sealed class WorldMarkers
             if (beam != null)
             {
                 UnityEngine.Object.Destroy(beam.gameObject);
+            }
+        }
+
+        for (var i = 0; i < _blood.Length; i++)
+        {
+            if (_blood[i] != null)
+            {
+                UnityEngine.Object.Destroy(_blood[i]!.gameObject);
+                _blood[i] = null;
             }
         }
 
@@ -90,6 +135,41 @@ public sealed class WorldMarkers
         _beams[index] = CreateLine("SpeedrunHighlight" + index, new Color(0.35f, 0.95f, 1f, 0.9f), 0.12f);
         _beams[index].enabled = false;
         return _beams[index];
+    }
+
+    private void SetBlood(bool enabled)
+    {
+        foreach (var line in _blood)
+        {
+            if (line != null)
+            {
+                line.enabled = enabled;
+            }
+        }
+    }
+
+    private void PlaceBlood(int index, Vector3 from, Vector3 to, float width)
+    {
+        var line = BloodLine(index);
+        line.enabled = true;
+        line.startWidth = width;
+        line.endWidth = width * 0.35f;
+        line.positionCount = 2;
+        line.SetPosition(0, from);
+        line.SetPosition(1, to);
+    }
+
+    private LineRenderer BloodLine(int index)
+    {
+        if (_blood[index] != null)
+        {
+            return _blood[index]!;
+        }
+
+        var line = CreateLine("SpeedrunBloodArrow" + index, new Color(0.95f, 0.12f, 0.1f, 1f), 0.2f);
+        line.enabled = false;
+        _blood[index] = line;
+        return line;
     }
 
     private LineRenderer CreateLine(string name, Color color, float width)
